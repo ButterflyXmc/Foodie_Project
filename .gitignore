@@ -4,6 +4,7 @@ node_modules
 
 
 # local env files
+# these files are known as the environment variable - these variable are read as the application starts running and NOT added to your git
 .env.local
 .env.*.local
 
