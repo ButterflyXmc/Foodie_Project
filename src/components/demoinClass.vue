@@ -13,16 +13,19 @@
     <v-text-field v-model="lastName" />
     <p>Password</p>
     <v-text-field v-model="password" />
-    <v-btn @click="login">Sign up</v-btn>
+
+    <v-btn @click="signUp">Sign up</v-btn>
+
     <!-- =================================== -->
   </v-container>
 </template>
 
 <script>
 import axios from "axios";
+import router from "vue-router";
 
 export default {
-  Name: "SignupForm",
+  Name: "ClientSignupPage",
 
   data() {
     return {
@@ -37,17 +40,18 @@ export default {
   },
   methods: {
     apiCall() {
-      // Axios call
-      console.log(this.apiKey);
-      console.log(this.apiUrl);
+      router.push("/dicover-page");
     },
-    login() {
+    signUp() {
       axios
         .request({
           method: "POST",
           url: "https://foodierest.ml/#/docs/client",
           data: {
             email: this.email,
+            username: this.username,
+            firstname: this.firstName,
+            lastname: this.lastName,
             password: this.password,
           },
           headers: {

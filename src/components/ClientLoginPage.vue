@@ -1,0 +1,61 @@
+<template>
+  <div>
+    <h2>Log In</h2>
+    <v-row>
+      <v-col cols="12" md="10">
+        <v-text-field v-model="email" label="Email"></v-text-field>
+      </v-col>
+      <v-col cols="12" md="10">
+        <v-text-field v-model="password" label="Password"></v-text-field>
+      </v-col>
+    </v-row>
+    <v-btn @click="clientLogin">Log In</v-btn>
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+import router from "@/router";
+import cookies from "vue-cookies";
+
+export default {
+  name: "ClientLoginPage",
+
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
+  methods: {
+    clientLogin() {
+      axios
+        .request({
+          url: "https://foodierest.ml/#/docs/client-login",
+          // https://foodierest.ml/api/client-login
+          method: "POST",
+          headers: {
+            "x-api-key": this.apiKey,
+          },
+          data: {
+            email: this.email,
+            password: this.password,
+          },
+        })
+        .then((response) => {
+          // sending the user to discover page with the path
+          router.push("/discover-page");
+          cookies.set(`clientID`, response.data.clientId);
+          cookies.set(`sessionToken`, response.data.token);
+        })
+        .catch(() => {
+          // this alert will pop up if login fails
+          alert("Log In failed, try again");
+        });
+    },
+  },
+};
+</script>
+
+<style scoped>
+</style>
