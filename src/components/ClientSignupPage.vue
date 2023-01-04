@@ -80,8 +80,8 @@ export default {
 
 <style lang="scss" scoped>
 div {
-  background-color: gray;
-  justify-content: center;
-  margin-top: 30px;
+  // background-color: gray;
+  // justify-content: center;
+  // margin-top: 30px;
 }
 </style>
