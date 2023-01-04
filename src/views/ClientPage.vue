@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- ADD SIGNUP and LOGIN comps for the clients -->
     <ClientSignupPage />
   </div>
 </template>
