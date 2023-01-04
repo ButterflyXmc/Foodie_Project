@@ -31,11 +31,10 @@ export default {
     restLogin() {
       axios
         .request({
-          url: "https://foodierest.ml/#/docs/restaurant-login",
-          // https://foodierest.ml/api/restaurant-login
+          url: "  https://foodierest.ml/api/restaurant-login",
           method: "POST",
           headers: {
-            "x-api-key": this.apiKey,
+            "x-api-key": process.env.VUE_APP_API_KEY,
           },
           data: {
             email: this.email,

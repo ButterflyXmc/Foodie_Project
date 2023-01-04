@@ -12,13 +12,27 @@
       </v-col>
 
       <v-col cols="12" md="10">
+        <v-text-field v-model="bio" label="Bio"> </v-text-field>
+      </v-col>
+
+      <v-col cols="12" md="10">
+        <v-text-field v-model="city" label="City"></v-text-field>
+      </v-col>
+
+      <v-col cols="12" md="10">
         <v-text-field v-model="email" label="Email"></v-text-field>
       </v-col>
 
       <v-col cols="12" md="10">
         <v-text-field v-model="password" label="Password"></v-text-field>
       </v-col>
+
+      <v-col cols="12" md="10">
+        <v-text-field v-model="phoneNum" label="Phone Number : XXX-XXX-XXX">
+        </v-text-field>
+      </v-col>
     </v-row>
+
     <v-btn @click="restSignup">Sign Up</v-btn>
   </div>
 </template>
@@ -34,25 +48,30 @@ export default {
     return {
       name: "",
       address: "",
+      bio: "",
+      city: "",
       email: "",
       password: "",
+      phoneNum: "",
     };
   },
   methods: {
     restSignup() {
       axios
         .request({
-          url: "https://foodierest.ml/#/docs/restaurant",
-          // https://foodierest.ml/api/restaurant
+          url: "https://foodierest.ml/api/restaurant",
           method: "POST",
           headers: {
-            "x-api-key": this.apiKey,
+            "x-api-key": process.env.VUE_APP_API_KEY,
           },
           data: {
             name: this.name,
             address: this.address,
+            bio: this.bio,
+            city: this.city,
             email: this.email,
             password: this.password,
+            phoneNum: this.phoneNum,
           },
         })
         .then((response) => {
