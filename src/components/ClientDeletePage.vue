@@ -1,34 +1,46 @@
 <template>
   <div>
-    <v-btn>Delete Account</v-btn>
+    <v-btn @click="deleteAcct">Delete Account</v-btn>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import router from "@/router";
 export default {
   name: "ClientDeletePage",
   data() {
-    return {};
+    return {
+      msg: "",
+    };
   },
   methods: {
-    deleteAccount() {
+    deleteAcct() {
       axios
         .request({
-          url: "https://foodierest.ml/#/docs/client",
-          // https://foodierest.ml/api/client
+          url: " https://foodierest.ml/api/client",
           method: "DELETE",
           headers: {
-            "x-api-key": this.apiKey,
+            "x-api-key": process.env.VUE_APP_API_KEY,
             //   add token
           },
         })
-        .then((response) => {
-          console.log(response);
-          //   need to test log before I add the key value pair for the user to see
+        .then(() => {
+          // get the cookies
+          // the delete the cookies
+          cookies.get(`token`);
+          cookies.remove(`token`);
+          cookies.get(`clientId`);
+          cookies.remove(`clientId`);
+          // return them back to the discovery page
+          this.msg = "Your account has been successfully deleted!";
+          router.push("/discover-page");
         })
         .catch((error) => {
           console.log(error);
+          alert(
+            "An error has occured deleteing your account! Please try again"
+          );
         });
     },
   },

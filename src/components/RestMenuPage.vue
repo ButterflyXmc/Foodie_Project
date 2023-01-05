@@ -13,18 +13,17 @@ export default {
     menu() {
       axios
         .request({
-          url: "https://foodierest.ml/#/docs/menu",
-          //   https://foodierest.ml/api/menu
+          url: "https://foodierest.ml/api/menu",
           method: "GET",
           headers: {
-            "x-api-key": this.apiKey,
+            "x-api-key": process.env.VUE_APP_API_KEY,
           },
         })
         .then((response) => {
           console.log(response);
         })
         .catch(() => {
-          alert("Soemthing went wrong, try again");
+          alert("Something went wrong, try again");
         });
     },
   },

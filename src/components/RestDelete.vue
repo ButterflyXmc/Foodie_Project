@@ -1,22 +1,25 @@
 <template>
-  <div><v-btn @click="restLogout">Log Out</v-btn></div>
+  <div><v-btn @click="restDelete">Log Out</v-btn></div>
 </template>
 
 <script>
 import axios from "axios";
 export default {
-  name: "RestLogoutPage",
+  name: "RestDelete",
   methods: {
-    restLogout() {
+    restDelete() {
       axios
         .request({
           url: "  https://foodierest.ml/api/restaurant-login",
-          method: "DELETE",
+          //   need to change the method
+          //   method: "DELETE",
           headers: {
             "x-api-key": process.env.VUE_APP_API_KEY,
           },
         })
         .then(() => {
+          // get the cookies
+          // the delete the cookies
           cookies.get(`token`);
           cookies.remove(`token`);
           cookies.get(`restaurantId`);
