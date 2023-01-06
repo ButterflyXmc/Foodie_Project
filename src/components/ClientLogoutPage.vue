@@ -1,12 +1,13 @@
 <template>
   <div>
-    <v-btn @click="logOut">Delete Account</v-btn>
+    <v-btn @click="logOut">Log Out</v-btn>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import router from "@/router";
+import cookies from "vue-cookies";
 export default {
   name: "ClientDeletePage",
   data() {

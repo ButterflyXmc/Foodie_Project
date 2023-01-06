@@ -6,7 +6,9 @@
 
 <script>
 import axios from "axios";
-import router from "@/router";
+// import router from "@/router";
+import cookies from "vue-cookies";
+
 export default {
   name: "ClientDeletePage",
   data() {
@@ -23,18 +25,18 @@ export default {
           headers: {
             "x-api-key": process.env.VUE_APP_API_KEY,
             //   add token
+            // token: "",
           },
         })
         .then(() => {
           // get the cookies
           // the delete the cookies
-          cookies.get(`token`);
+          // this.token = cookies.get(`token`);
           cookies.remove(`token`);
-          cookies.get(`clientId`);
           cookies.remove(`clientId`);
           // return them back to the discovery page
           this.msg = "Your account has been successfully deleted!";
-          router.push("/discover-page");
+          // router.push("/discover-page");
         })
         .catch((error) => {
           console.log(error);

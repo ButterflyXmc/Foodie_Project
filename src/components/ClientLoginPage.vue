@@ -43,7 +43,7 @@ export default {
         })
         .then((response) => {
           // sending the user to discover page with the path
-          router.push("/discover-page");
+          router.push("/client-homepage");
           cookies.set(`clientID`, response.data.clientId);
           cookies.set(`sessionToken`, response.data.token);
         })

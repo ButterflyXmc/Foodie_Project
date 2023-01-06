@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- SIGN UP FORM -->
+    <div><h1>Sign Up</h1></div>
 
     <div class="clientform">
       <v-row>
@@ -62,7 +63,7 @@ export default {
         .then((response) => {
           console.log(response);
           // sending the user to discover page with the path
-          router.push("/discover-page");
+          router.push("/client-homepage");
 
           //setting cookies (10)
           cookies.set(`clientId`, response.data.clientId);
@@ -85,3 +86,4 @@ div {
   // margin-top: 30px;
 }
 </style>
+

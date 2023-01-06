@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Restaurant Sign Up Page</h2>
+    <h2>Sign Up</h2>
     <v-row>
       <v-col cols="12" md="10">
         <v-text-field v-model="name" label="Restaurant Name"></v-text-field>

@@ -1,27 +1,25 @@
 <template>
-  <!-- A page where the client will be able to log in and /or Sign up -->
   <div>
-    <h1>Client page</h1>
-
+    <h1>Resto Page</h1>
     <section class="signup">
-      <ClientSignupPage />
+      <RestSignupPage />
     </section>
 
     <section class="login">
-      <ClientLoginPage />
+      <RestLoginPage />
     </section>
   </div>
 </template>
 
 <script>
-import ClientSignupPage from "@/components/ClientSignupPage.vue";
-import ClientLoginPage from "@/components/ClientLoginPage.vue";
+import RestSignupPage from "@/components/RestSignupPage.vue";
+import RestLoginPage from "@/components/RestLoginPage.vue";
 
 export default {
-  name: "ClientPage",
+  name: "RestoPage",
   components: {
-    ClientSignupPage,
-    ClientLoginPage,
+    RestSignupPage,
+    RestLoginPage,
   },
 };
 </script>
