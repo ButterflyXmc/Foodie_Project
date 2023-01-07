@@ -77,6 +77,7 @@ export default {
         .then((response) => {
           router.push("/discover-page");
           cookies.set(`restaurantId`, response.data.restaurantId);
+          // will need to use this cookie update info
           cookies.set(`token`, response.data.token);
         })
         .catch(() => {

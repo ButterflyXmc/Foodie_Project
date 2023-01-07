@@ -6,6 +6,7 @@ import MainHomePage from '@/views/MainHomePage.vue';
 import RestSignupPage from '@/components/RestSignupPage.vue';
 import RestLoginPage from '@/components/RestLoginPage.vue';
 import RestMenuPage from '@/components/RestMenuPage.vue';
+import RestEditAcct from '@/components/RestEditAcct.vue';
 
 import ClientPage from '@/views/ClientPage.vue'
 import RestoPage from '@/views/RestoPage.vue'
@@ -51,6 +52,10 @@ const routes = [
   {
     path: '/client-homepage',
     component: ClientHomePage
+  },
+  {
+    path: '/resto-edit',
+    component: RestEditAcct
   }
 
 ]
