@@ -1,14 +1,15 @@
 <template>
   <div>
-    <h1>Wlecome to FlyMc!</h1>
-    <h3>Hungry? Let's get ordering</h3>
-    <div class="links">
-      <p>Sign up or Log in as a User</p>
-      <router-link to="/client-page">User Sign up/Log In</router-link>
-      <br />
-      <p>Sign up or Log In as a Restaurant</p>
-      <router-link to="/resto-page">Restaurant Sign Up/Log In</router-link>
-    </div>
+    <h1>Restaurants</h1>
+    <section>
+      <div class="logout">
+        <RestLogoutPage />
+      </div>
+      <div class="delete">
+        -------------------------------------
+        <RestDelete />
+      </div>
+    </section>
 
     <main v-for="restaurant in restaurant" :key="restaurant.restaurantId">
       <h2>Name : {{ restaurant.name }}</h2>
@@ -25,8 +26,15 @@
 import axios from "axios";
 import cookies from "vue-cookies";
 
+import RestLogoutPage from "@/components/RestLogoutPage.vue";
+import RestDelete from "@/components/RestDelete.vue";
+
 export default {
-  name: "DiscoverPage",
+  name: "RestHomePage",
+  components: {
+    RestLogoutPage,
+    RestDelete,
+  },
   data() {
     return {
       restaurant: "",
@@ -78,15 +86,5 @@ h1 {
   margin-top: 30px;
   font-size: 4em;
   background-color: rgba(128, 128, 128, 0.327);
-}
-
-h3 {
-  text-align: center;
-}
-
-.links {
-  text-align: center;
-  margin: 20px;
-  background-color: rgba(181, 130, 181, 0.324);
 }
 </style>

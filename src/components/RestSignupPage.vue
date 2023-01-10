@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Sign Up</h2>
-    <v-row>
+    <h1>Sign Up</h1>
+    <v-row class="clientform">
       <v-col cols="12" md="10">
         <v-text-field v-model="name" label="Restaurant Name"></v-text-field>
       </v-col>
@@ -33,7 +33,7 @@
       </v-col>
     </v-row>
 
-    <v-btn @click="restSignup">Sign Up</v-btn>
+    <v-btn class="btn" @click="restSignup">Sign Up</v-btn>
   </div>
 </template>
 
@@ -90,4 +90,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.clientform {
+  margin-left: 30px;
+}
+
+.btn {
+  margin: 20px;
+}
+
+h1 {
+  margin-left: 30px;
+}
 </style>

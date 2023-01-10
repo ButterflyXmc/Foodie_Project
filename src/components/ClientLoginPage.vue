@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2>Log In</h2>
-    <v-row>
+    <h1>Log In</h1>
+    <v-row class="login">
       <v-col cols="12" md="10">
         <v-text-field v-model="email" label="Email"></v-text-field>
       </v-col>
@@ -9,7 +9,7 @@
         <v-text-field v-model="password" label="Password"></v-text-field>
       </v-col>
     </v-row>
-    <v-btn @click="clientLogin">Log In</v-btn>
+    <v-btn class="btn" @click="clientLogin">Log In</v-btn>
   </div>
 </template>
 
@@ -42,13 +42,11 @@ export default {
           },
         })
         .then((response) => {
-          // sending the user to discover page with the path
           router.push("/client-homepage");
           cookies.set(`clientID`, response.data.clientId);
           cookies.set(`sessionToken`, response.data.token);
         })
         .catch(() => {
-          // this alert will pop up if login fails
           alert("Log In failed, try again");
         });
     },
@@ -57,4 +55,15 @@ export default {
 </script>
 
 <style scoped>
+.login {
+  margin-left: 30px;
+}
+
+.btn {
+  margin: 20px;
+}
+
+h1 {
+  margin-left: 30px;
+}
 </style>

@@ -22,7 +22,7 @@
         </v-col>
       </v-row>
       <!-- Sign up button -->
-      <v-btn @click="clientSignup">Sign Up</v-btn>
+      <v-btn class="btn" @click="clientSignup">Sign Up</v-btn>
     </div>
   </div>
 </template>
@@ -80,10 +80,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
-  // background-color: gray;
-  // justify-content: center;
-  // margin-top: 30px;
+.clientform {
+  margin-left: 30px;
+}
+
+.btn {
+  margin: 20px;
+}
+
+h1 {
+  margin-left: 30px;
 }
 </style>
 

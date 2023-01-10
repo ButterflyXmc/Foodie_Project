@@ -1,11 +1,16 @@
 <template>
-  <div><v-btn @click="restLogout">Log Out</v-btn></div>
+  <div>
+    <v-btn @click="restLogout">Log Out</v-btn>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
+import router from "@/router";
+import cookies from "vue-cookies";
+
 export default {
-  name: "RestLogoutPage",
+  name: "ClientLogoutPage",
   methods: {
     restLogout() {
       axios
@@ -16,19 +21,22 @@ export default {
             "x-api-key": process.env.VUE_APP_API_KEY,
           },
         })
-        .then(() => {
+        .then((response) => {
           cookies.get(`token`);
-          cookies.remove(`token`);
-          cookies.get(`restaurantId`);
-          cookies.remove(`restaurantId`);
+          cookies.remove(`token`, response.data.token);
+          cookies.remove(`restaurantId`, response.data.restaurantId);
+          router.push("/discover-page");
         })
-        .catch(() => {
-          alert(`An error has occurred, please try again!`);
+        .catch((error) => {
+          console.log(error);
+          alert(
+            "An error has occured logging out of your account! Please try again"
+          );
         });
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>

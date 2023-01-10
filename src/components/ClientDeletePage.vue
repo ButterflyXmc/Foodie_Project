@@ -6,7 +6,7 @@
 
 <script>
 import axios from "axios";
-// import router from "@/router";
+import router from "@/router";
 import cookies from "vue-cookies";
 
 export default {
@@ -20,23 +20,19 @@ export default {
     deleteAcct() {
       axios
         .request({
-          url: " https://foodierest.ml/api/client",
+          url: " https://foodierest.ml/api/client-login",
           method: "DELETE",
           headers: {
             "x-api-key": process.env.VUE_APP_API_KEY,
-            //   add token
-            // token: "",
           },
         })
-        .then(() => {
-          // get the cookies
-          // the delete the cookies
-          // this.token = cookies.get(`token`);
-          cookies.remove(`token`);
-          cookies.remove(`clientId`);
+        .then((response) => {
+          cookies.get(`token`);
+          cookies.remove(`token`, response.data.token);
+          cookies.remove(`clientId`, response.data.clientId);
           // return them back to the discovery page
           this.msg = "Your account has been successfully deleted!";
-          // router.push("/discover-page");
+          router.push("/discover-page");
         })
         .catch((error) => {
           console.log(error);
