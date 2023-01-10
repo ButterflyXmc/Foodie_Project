@@ -8,6 +8,7 @@
 <script>
 import axios from "axios";
 import cookies from "vue-cookies";
+import router from "@/router";
 
 export default {
   name: "RestDelete",
@@ -33,6 +34,7 @@ export default {
           cookies.get(`restaurantId`);
           cookies.remove(`restaurantId`);
           this.msg = "Account Deleted successfully!";
+          router.push("/");
         })
         .catch(() => {
           alert(`An error has occurred, please try again!`);

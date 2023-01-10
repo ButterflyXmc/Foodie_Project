@@ -32,7 +32,7 @@ export default {
           cookies.remove(`clientId`, response.data.clientId);
           // return them back to the discovery page
           this.msg = "Your account has been successfully deleted!";
-          router.push("/discover-page");
+          router.push("/");
         })
         .catch((error) => {
           console.log(error);

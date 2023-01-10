@@ -25,7 +25,7 @@ export default {
           cookies.get(`token`);
           cookies.remove(`token`, response.data.token);
           cookies.remove(`clientId`, response.data.clientId);
-          router.push("/discover-page");
+          router.push("/");
         })
         .catch((error) => {
           console.log(error);
